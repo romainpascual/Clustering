@@ -60,13 +60,14 @@ Dans une telle modélisation, $x$ et $y$ sont des variables de décisions. Ainsi
 
 Alors la première contrainte siginie qu'il y a au plus $k$ clusters, la deuxième signifie que $u$ ne peut être dans le cluster de $v$ que si $v$ est un centre, et la dernière assure que chaque sommet est effectivement dans un cluster. Comme on cherche à minimiser les fonctions objectifs dans chacun des cas, chaque point est bien ajouté au cluster correspondant au centre le plus proche.
 
-Les codes des différents problèmes sont respectivements présents dans les fichiers :
+Les codes des différents problèmes sont présents dans le dosser "ampl", respectivements dans les fichiers :
 \begin{itemize}
 \item \texttt{kmedian.mod}, 
 \item \texttt{kmean.mod},
 \item \texttt{kcenter.mod}.
 \end{itemize}
 
+\pagebreak
 \section*{Resultats}
 Voici un tableau récapitulatif des résultats obtenus pour les trois problèmes:
 
@@ -102,5 +103,23 @@ On minimise alors $d$. Cela agrandi l'espace de recherche, on obtient donc un no
 \bigskip
 
 On remarquera que les solutions aux problèmes $k$-médiane et $k$-moyennne possèdent $3$ centres en commun : $283492107$, $283517728$ et $283523670$ mais ne partagent aucun centres communs avec le problème $k$-centre. En effet, les deux premiers problèmes s'intéressent à un minimisation globale à l'intérieur d'un cluster puisque que l'on somme les contributions de tous les points, tandis que le troisième problème ne s'intéresse qu'à la contribution des points extrémaux.  
+
+\bigskip
+
+Par ailleurs, il est possible de visualiser les clusters en utilisant un script python. Pour ce faire, il convient tout d'abord d'exporter les solutions au format csv en utilisant ampl. Les données traitées et le script python sont présents dans le dossier "results". On obtient alors la visualisation présentée en figure \ref{fig:res}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width = 400 pt]{clusters.png}
+\caption{Visualisation des différents clusters}
+\label{fig:res}
+\end{center}
+\end{figure}
+
+On remarque que les clustering pour les deux premiers premiers problèmes sont relativements similaires. Par ailleurs il est aisément possible d'isoler certaines composantes connexes (la zone en orange sur chacun des problèmes).
+
+Cependant puisque la distance entre $2$ points n'est pas la distance euclidienne mais la distance portée par le réseau routier, ce qui revient à déformer l'espace, cette visualisation n'est pas nécessairement pertinente.
+
+Par ailleurs, et notamment pour le problème $k$-center, de nombreux points peuvent appartenir à plusieurs clusters étant donné que leur distance à plusieurs centres est inférieure à la distance maximale. En augmentant $k$ en revanche, on améliorerait la précision, au prix d'un temps d'exécution plus long.
 
 \end{document}
