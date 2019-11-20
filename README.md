@@ -12,6 +12,3 @@ $$ \sum_{v \in V} \min_i d^2_{c_i,v}$$
 
 - [k-center](https://en.wikipedia.org/wiki/K-means_clustering) : provide the set of _k_ vertices $\{c_1, \dots c_k\}$ minimizing
 $$ \max_{v \in V} \min_i d_{c_i,v}$$
-
-<script type="text/javascript" async
-src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
